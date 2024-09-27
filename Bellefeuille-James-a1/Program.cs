@@ -109,23 +109,30 @@ else
     }
 }
 Console.WriteLine("How many classes do you have this year again? I know we share a math and english but I'm unsure of which others your taking? \n 'Plausable number of classes'\n");
-int numOfClass = int.Parse(Console.ReadLine());
-if (numOfClass < 4)
+string classChoice = Console.ReadLine();
+if (classChoice != "")
 {
-    suspicion++;
-    nextLine = "Wow, that few? You're lucky man.";
-}
-else if (numOfClass > 7)
-{
-    suspicion++;
-    nextLine = "Wow.. That many? Good luck man, you'll need it";
+    int numOfClass = int.Parse(classChoice);
+    if (numOfClass < 4)
+    {
+        suspicion++;
+        nextLine = "Wow, that few? You're lucky man.";
+    }
+    else if (numOfClass > 7)
+    {
+        suspicion++;
+        nextLine = "Wow.. That many? Good luck man, you'll need it";
+    }
+    else
+    {
+        nextLine = "Gotcha, shouldn't be too bad of a year";
+    }
 }
 else
-{
-    nextLine = "Gotcha, shouldn't be too bad of a year";
+{ // This runs if the player enters nothing
+    suspicion++;
+    nextLine = "Jared says nothing";
 }
-
-
 if (suspicion == 1) // Excited to have functions in future because stuff like this will be so much easier. Instead of having to repeat it for every dialouge line
 {
     suspicionFace = faceUneasy;
